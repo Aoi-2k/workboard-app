@@ -26,6 +26,18 @@ app.get("/api/user", (req, res) => {
 
 });
 
+
+//post request
+
+app.post("/api/data", (req, res) => {
+    const body = req.body;
+
+    res.json({
+        message : "data received sucessfully",
+        data :body,
+    });
+});
+
 module.exports =app;
 
 
