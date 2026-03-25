@@ -3,20 +3,18 @@ const cors = require("cors");
 
 const app = express();
 
-
-//middleware function that runs before route
 app.use(cors());
 app.use(express.json());
 
-//routes
+// import routes
+const userRoutes = require("./routes/user.routes");
+
+// use routes
+app.use("/api", userRoutes);
+
+// health route
 app.get("/api/health", (req, res) => {
     res.json({ message: "Backend is running" });
 });
 
-
-
-
-//new route day 2 
-
-
-
+module.exports = app;
