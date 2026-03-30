@@ -3,6 +3,9 @@ const cors = require("cors");
 
 const logger = require(".middleware/logger.middleware");
 
+const authRoutes = require("./routes/auth.routes");
+
+
 const app = express();
 
 app.use(cors());
@@ -10,6 +13,8 @@ app.use(express.json());
 
 //middle where use 
 app.use(logger);
+
+app.use("/api/auth", authRoutes);
 
 // import routes
 const userRoutes = require("./routes/user.routes");
