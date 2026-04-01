@@ -1,2 +1,3 @@
-const users =[];  //temporary in memory storage
-module.exports =users;
+const users = [];
+
+module.exports = users;
