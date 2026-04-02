@@ -1,3 +1,6 @@
+
+const jwt = require("jsonwebtoken");
+
 const bcrypt = require("bcryptjs");
 const users = require("../models/user.model");
 
@@ -42,7 +45,23 @@ const login = async (req, res) => {
     return res.status(400).json({ message: "Invalid password" });
   }
 
-  res.json({
+
+//generate token
+
+const token =jwt.sign(
+  {email:user.email },
+  "secretkey",
+  {expiresIn: "1h"}
+);
+
+res.json({
+  message : "Login successful",
+  token,
+});
+};
+
+
+  /* res.json({
     message: "Login successful",
   });
 };
@@ -50,4 +69,5 @@ const login = async (req, res) => {
 module.exports = {
   register,
   login,
-};
+}; 
+*/
